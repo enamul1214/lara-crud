@@ -16,16 +16,18 @@
             @method('PUT')
             @csrf
 
-            <div class="mb-4">
-                <label for="title" class="font-bold text-gray-800">Title:</label>
-                <input name="title" class="block appearance-none placeholder-gray-500 border border-emerald-400 rounded-md w-full py-2 px-4 text-gray-700 leading-5 focus:outline-none focus:ring-2 focus:ring-emerald-200" value="{{ $post->title }}" type="text">
-            </div>
-            <div class="mb-4">
-                <label for="title" class="font-bold text-gray-800">Content:</label>
-                <textarea name="content" rows="3" class="py-2 px-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $post->content }}</textarea>
-            </div>
-            <div class="mb-4">
-                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+            <div class="mb-4 p-4 shadow sm:rounded-md sm:overflow-hidden">
+                <div class="mb-4">
+                    <label for="title" class="font-bold text-gray-800">Title:</label>
+                    <input name="title" class="block appearance-none placeholder-gray-500 border border-emerald-400 rounded-md w-full py-2 px-4 text-gray-700 leading-5 focus:outline-none focus:ring-2 focus:ring-emerald-200" value="{{ $post->title }}" type="text">
+                </div>
+                <div class="mb-4">
+                    <label for="title" class="font-bold text-gray-800">Content:</label>
+                    <textarea name="content" rows="3" class="py-2 px-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $post->content }}</textarea>
+                </div>
+                <div class="mb-4">
+                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                </div>
             </div>
         </form>
     </div>
