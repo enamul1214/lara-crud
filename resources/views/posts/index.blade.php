@@ -20,16 +20,16 @@
                       <img class="rounded-lg md:w-56" src="{{ asset('uploads/'.$post->image) }}" alt="{{$post->title}}" width="448" height="299">
                     </div>
                     <div class="mt-4 md:mt-0 md:ml-6">
-                      <div class="uppercase tracking-wide text-xl text-indigo-600 font-bold">{{$post->title}}</div>
+                      <div class="uppercase tracking-wide text-2xl text-indigo-600 font-bold">{{$post->title}}</div>
                       <p class="mt-2 text-gray-600">{{$post->content}}</p>
                     </div>
                 </div>
-                <div class="action-wrapper flex mt-4">
-                    <a href="/posts/{{ $post->id }}/edit" class="inline-flex justify-center py-2 px-4 mr-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Edit</a>
+                <div class="action-wrapper flex mt-4 justify-end">
+                    <a href="/posts/{{ $post->id }}/edit" class="inline-flex justify-center py-2 px-4 ml-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Edit</a>
                     <form action="/posts/{{ $post->id }}" method="post">
                         @csrf
                         @method('delete')
-                        <button class="inline-flex justify-center py-2 px-4 mr-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
+                        <button class="inline-flex justify-center py-2 px-4 ml-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
                     </form>
                 </div>
             </article>

@@ -43,6 +43,9 @@ class PostsController extends Controller
             'title' => request('title'),
             'content' => request('content'),
             'image' => $filename,
+            'vehicles' => request('vehicles'),
+            'gender' => request('gender'),
+            'country' => request('country'),
         ]);
 
         return redirect('/posts');
@@ -59,7 +62,7 @@ class PostsController extends Controller
         request()->validate([
             'title' => 'required',
             'content' => 'required',
-            'image' => 'mimes:png,jpg,jpeg|max:2048'
+            'image' => 'mimes:png,jpg,jpeg|max:2048',
         ]);
 
         if(request('image')) {
@@ -86,6 +89,9 @@ class PostsController extends Controller
             'title' => request('title'),
             'content' => request('content'),
             'image' => $filename,
+            'vehicles' => request('vehicles'),
+            'gender' => request('gender'),
+            'country' => request('country'),
         ]);
 
         return redirect('/posts');
