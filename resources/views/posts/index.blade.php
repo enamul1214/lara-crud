@@ -14,10 +14,16 @@
             <a href="/posts/create" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create Post</a>
         </div>
         @foreach ($posts as $post)
-            <article class="mb-4 p-4 shadow sm:rounded-md sm:overflow-hidden bg-indigo-300 bg-opacity-25 hover:bg-indigo-300 hover:bg-opacity-40">
-                <h2 class="text-xl font-bold text-gray-900">{{$post->title}}</h2></a>
-                <p class="text-md text-gray-800">{{$post->content}}</p>
-
+            <article class="mb-4 p-4 shadow sm:rounded-md sm:overflow-hidden bg-indigo-300 bg-opacity-25">
+                <div class="md:flex">
+                    <div class="md:flex-shrink-0 bg-white rounded-lg">
+                      <img class="rounded-lg md:w-56" src="{{ asset('uploads/'.$post->image) }}" alt="{{$post->title}}" width="448" height="299">
+                    </div>
+                    <div class="mt-4 md:mt-0 md:ml-6">
+                      <div class="uppercase tracking-wide text-xl text-indigo-600 font-bold">{{$post->title}}</div>
+                      <p class="mt-2 text-gray-600">{{$post->content}}</p>
+                    </div>
+                </div>
                 <div class="action-wrapper flex mt-4">
                     <a href="/posts/{{ $post->id }}/edit" class="inline-flex justify-center py-2 px-4 mr-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Edit</a>
                     <form action="/posts/{{ $post->id }}" method="post">

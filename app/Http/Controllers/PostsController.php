@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -18,17 +19,30 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         // Validation
         request()->validate([
             'title' => 'required',
             'content' => 'required',
+            'image' => 'mimes:png,jpg,jpeg|max:2048'
         ]);
+
+        if($request->file('image')) {
+            $file = $request->file('image');
+            $filename = time().'_'.$file->getClientOriginalName();
+   
+            // File upload location
+            $location = 'uploads';
+   
+            // Upload file
+            $file->move($location,$filename);
+        }
 
         Post::create([
             'title' => request('title'),
             'content' => request('content'),
+            'image' => $filename,
         ]);
 
         return redirect('/posts');
@@ -45,12 +59,33 @@ class PostsController extends Controller
         request()->validate([
             'title' => 'required',
             'content' => 'required',
+            'image' => 'mimes:png,jpg,jpeg|max:2048'
         ]);
+
+        if(request('image')) {
+            $file = request('image');
+            $filename = time().'_'.$file->getClientOriginalName();
+   
+            // File upload location
+            $location = 'uploads';
+   
+            // Upload file
+            $file->move($location,$filename);
+
+            // Delete existing file
+            $imagePath = public_path('uploads/'.request('old_image'));
+            if(File::exists($imagePath)){
+                unlink($imagePath);
+            }
+        } else {
+            $filename = request('old_image');
+        }
 
         // update
         $post->update([
             'title' => request('title'),
             'content' => request('content'),
+            'image' => $filename,
         ]);
 
         return redirect('/posts');
