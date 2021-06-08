@@ -57,10 +57,10 @@
                 <div class="mb-4">
                     <label for="country" class="block font-bold text-gray-800">Country / Region</label>
                     <select name="country" id="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option value="volvo">United States</option>
-                        <option value="saab">Canada</option>
-                        <option value="opel">Bangladesh</option>
-                        <option value="audi">UAE</option>
+                        <option value="United States">United States</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="UAE">UAE</option>
                     </select>
                 </div>
 

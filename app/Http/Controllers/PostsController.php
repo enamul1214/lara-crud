@@ -43,7 +43,7 @@ class PostsController extends Controller
             'title' => request('title'),
             'content' => request('content'),
             'image' => $filename,
-            'vehicles' => request('vehicles'),
+            'vehicles' => json_encode(request('vehicles')),
             'gender' => request('gender'),
             'country' => request('country'),
         ]);
@@ -89,7 +89,7 @@ class PostsController extends Controller
             'title' => request('title'),
             'content' => request('content'),
             'image' => $filename,
-            'vehicles' => request('vehicles'),
+            'vehicles' => json_encode(request('vehicles')),
             'gender' => request('gender'),
             'country' => request('country'),
         ]);

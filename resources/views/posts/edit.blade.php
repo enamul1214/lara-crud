@@ -31,6 +31,76 @@
                     <input type="hidden" name="old_image" value="{{ $post->image }}">
                     <img class="mt-3" src="{{ asset('uploads/'.$post->image) }}" alt="{{$post->title}}">
                 </div>
+
+                <div class="mb-4">
+                    <label class="block font-bold text-gray-800">Question about a few options</label>
+                    <div class="questions-wrapper">
+                       
+                        <input 
+                            type="checkbox" 
+                            name="vehicles[]" 
+                            value="Bike" 
+                            <?php if(in_array('Bike',json_decode($post->vehicles))) echo "checked";?>
+                        >
+                        <label> I have a bike</label><br>
+                        <input 
+                            type="checkbox" 
+                            name="vehicles[]" 
+                            value="Car"
+                            <?php if(in_array('Car',json_decode($post->vehicles))) echo "checked";?>
+                        >
+                        <label> I have a car</label><br>
+                        <input 
+                            type="checkbox" 
+                            name="vehicles[]" 
+                            value="Boat"
+                            <?php if(in_array('Boat',json_decode($post->vehicles))) echo "checked";?>
+                        >
+                        <label> I have a boat</label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-bold text-gray-800">Gender</label>
+                    <div class="questions-wrapper">
+                        {{-- {{ $post->gender }} --}}
+                        <input 
+                            type="radio" 
+                            id="male" 
+                            name="gender" 
+                            value="male"
+                            <?php if($post->gender == 'male') echo 'checked'; ?>
+                        >
+                        <label for="male">Male</label><br>
+                        <input 
+                            type="radio" 
+                            id="female" 
+                            name="gender" 
+                            value="female"
+                            <?php if($post->gender == 'female') echo 'checked'; ?>
+                        >
+                        <label for="female">Female</label><br>
+                        <input 
+                            type="radio" 
+                            id="other" 
+                            name="gender" 
+                            value="other"
+                            <?php if($post->gender == 'other') echo 'checked'; ?>
+                        >
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="country" class="block font-bold text-gray-800">Country / Region</label>
+                    <select name="country" id="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="United States" <?php if($post->country == 'United States') echo 'selected'; ?>>United States</option>
+                        <option value="Canada" <?php if($post->country == 'Canada') echo 'selected'; ?>>Canada</option>
+                        <option value="Bangladesh" <?php if($post->country == 'Bangladesh') echo 'selected'; ?>>Bangladesh</option>
+                        <option value="UAE" <?php if($post->country == 'UAE') echo 'selected'; ?>>UAE</option>
+                    </select>
+                </div>
+
                 <div class="mb-4">
                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
                     <a href="/posts" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Cancel</a>
