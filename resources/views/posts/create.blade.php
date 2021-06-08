@@ -25,10 +25,16 @@
                 <div class="mb-4">
                     <label for="title" class="font-bold text-gray-800">Title:</label>
                     <input name="title" class="block appearance-none placeholder-gray-500 border border-emerald-400 rounded-md w-full py-2 px-4 text-gray-700 leading-5 focus:outline-none focus:ring-2 focus:ring-emerald-200" type="text">
+                    @error('title')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     <label for="content" class="font-bold text-gray-800">Content:</label>
                     <textarea name="content" rows="3" class="py-2 px-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                    @error('content')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     <label for="image" class="block font-bold text-gray-800">Image</label>
