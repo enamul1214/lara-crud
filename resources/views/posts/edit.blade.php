@@ -9,8 +9,13 @@
 </head>
 <body>
     <div style="width: 990px" class="container max-w-full mx-auto pt-4 px-4">
-        <div class="text-right mb-3">
-            <a href="/posts" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Post List</a>
+        <div class="md:flex">
+            <div class="mb-4 md:mb-0 md:w-1/2"><h1 class="text-2xl font-bold text-gray-900">My Blog</h1></div>
+            <div class="mb-4 md:mb-0 md:w-1/2">
+                <div class="md:text-right mb-3">
+                    <a href="/posts" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Post List</a>
+                </div>
+            </div>
         </div>
         <form method="POST" action="/posts/{{ $post->id }}" enctype="multipart/form-data">
             @method('PUT')
