@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FileUploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,7 @@ Route::get('/posts/{post}/edit', [PostsController::class, 'edit']);
 Route::put('/posts/{post}', [PostsController::class, 'update']);
 
 Route::delete('/posts/{post}', [PostsController::class, 'destroy']);
+
+// Comment Routes
+Route::get('/comments/create', [CommentController::class, 'create']);
+Route::post('/posts', [CommentController::class, 'store']);

@@ -53,6 +53,16 @@
                             <p>{{ $post->country }}</p>
                         </div>
                         @endif
+                        <hr class="my-4">
+                        <div class="mb-4">
+                            <label for="content" class="block font-bold text-gray-800">Comment</label>
+                            <form method="POST" action="/posts">
+                                @csrf
+                                <input type="text" name="article_id" value="{{$post->id}}" hidden>
+                                <textarea name="content" rows="3" class="py-2 px-4 shadow-sm focus:ring-green-500 focus:border-green-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md mb-2"></textarea>
+                                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="action-wrapper flex mt-4 justify-end">
