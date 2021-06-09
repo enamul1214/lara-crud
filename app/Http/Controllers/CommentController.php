@@ -43,7 +43,7 @@ class CommentController extends Controller
         ]);
 
         Comment::create([
-            'article_id' => $request->article_id,
+            'post_id' => $request->post_id,
             'content' => request('content'),
         ]);
 
