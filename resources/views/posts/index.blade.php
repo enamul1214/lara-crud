@@ -18,7 +18,8 @@
             </div>
         </div>
         <?php // foreach ($posts as $post){ //dump(json_decode($post)); ?>
-        @foreach ($posts as $post)            
+        @foreach ($posts as $post)
+            {{-- <pre>{{dd(json_decode($posts))}}</pre> --}}
             <article class="mb-4 p-4 shadow sm:rounded-md sm:overflow-hidden bg-indigo-300 bg-opacity-25">
                 <div class="md:flex">
                     <div class="md:flex-shrink-0">
