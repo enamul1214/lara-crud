@@ -28,12 +28,16 @@
                 <table class="w-full text-md bg-white shadow-md rounded mb-4">
                     <tbody>
                         <tr class="border-b">
+                            <th class="w-3 text-left p-3 px-5">ID</th>
                             <th class="text-left p-3 px-5">Category Name</th>
-                            <th>Action</th>
+                            <th class="text-left p-3 px-5">Created Date</th>
+                            <th class="w-10 text-center p-3 px-5">Action</th>
                         </tr>
                         @foreach ($categories as $number=>$category)
                             <tr class="border-b hover:bg-orange-100 <?php if(($number % 2) == '0'){ echo 'bg-gray-100'; }else{echo ''; } ?> ">
+                                <td class="p-3 px-5">{{ $number+1 }}</td>
                                 <td class="p-3 px-5">{{ $category->category_title }}</td>
+                                <td class="p-3 px-5">{{ $category->created_at->diffForHumans() }}</td>
                                 <td class="p-3 px-5 flex justify-end">
                                     <a href="/categories/{{ $category->id }}/edit/" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</a>
                                     <form action="/categories/{{ $category->id }}" method="post">

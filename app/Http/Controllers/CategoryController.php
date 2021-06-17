@@ -15,8 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         // Category List View
-        $categories = Category::all();
-        // dd($categories);
+        $categories = Category::orderBy('id', 'DESC')->get();
         return view('categories.index', ['categories' => $categories] );
     }
 
