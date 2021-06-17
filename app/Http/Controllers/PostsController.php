@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id', 'DESC')->get();
+        $posts = Post::with('category')->orderBy('id', 'DESC')->get();
         return view('posts.index', ['posts' => $posts]);
     }
 
@@ -25,6 +25,7 @@ class PostsController extends Controller
         request()->validate([
             'title' => 'required',
             'content' => 'required',
+            'category_id' => 'required',
             'image' => 'mimes:png,jpg,jpeg|max:2048'
         ]);
 

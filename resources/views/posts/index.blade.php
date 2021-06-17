@@ -29,6 +29,11 @@
                     <div class="mt-4 md:mt-0 md:ml-6">
                         <div class="uppercase tracking-wide text-2xl text-indigo-600 font-bold">{{$post->title}}</div>
                         <p class="mt-2 text-gray-600">{{$post->content}}</p>
+                        <div class="mt-2">
+                            <label class="block font-bold">Category</label>
+                            {{-- <p>{{ $post->category->category_title }}</p> --}}
+                            {{-- https://www.youtube.com/watch?v=sbfwprY7TQw&list=PLB1ippj6b9eleZrk5zT8Jx3fdF2ZnrNzY&index=8 --}}
+                        </div>
                         @if(json_decode($post->vehicles))
                             <div class="mt-2">
                                 <label class="block font-bold">Vehicles</label>
