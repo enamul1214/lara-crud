@@ -11,7 +11,9 @@ php artisan key:generate
 php artisan migrate
 
 ## ===== Define route on web.php then make controller ===
-php artisan make:controller (your controller name)
+php artisan make:controller (your controller name: PhotoController) --resource
+
+php artisan make:controller CategoryController --resource
 
 ## ===== Create model set migration ===
 php artisan make:model (your model name) -m
