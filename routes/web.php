@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FileUploadController;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 // Post Routes
@@ -36,3 +37,15 @@ Route::delete('/posts/{post}', [PostsController::class, 'destroy']);
 // Comment Routes
 Route::get('/comments/create', [CommentController::class, 'create']);
 Route::post('/posts', [CommentController::class, 'store']);
+
+// Categories Route
+Route::get('/categories', [CategoryController::class, 'index']);
+
+
+Route::get('/categories/create', [CategoryController::class, 'create']);
+Route::post('/categories', [CategoryController::class, 'store']);
+
+Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
+Route::put('/categories/{category}', [CategoryController::class, 'update']);
+
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
